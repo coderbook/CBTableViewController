@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+static const int defaultPageSize=10;
+
+
 @protocol CBTableViewControllerNetWork <NSObject>
 @required
 
@@ -34,21 +37,26 @@
     
     NSString *_method;
     
-    NSString * _listName;
+    NSString * _dataKey;
     
     
     NSMutableDictionary * _params;
     
     UITableView * _baseTableView;
     
-    BOOL _isNavLeftButton;
     
     BOOL isFirst;
 
 }
 @property(nonatomic,assign)id<CBTableViewControllerNetWork> networkHandler;
+@property(nonatomic) BOOL isFirstLoad;
 
 
+-(void)initTableView:(UITableView*)tableView method:(NSString*)method dataKey:(NSString*)dataKey;
+
+-(void)refresh;
+
+-(void)clear;
 
 
 @end

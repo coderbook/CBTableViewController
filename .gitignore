@@ -1,4 +1,6 @@
 .DS_Store
+CBTableViewController/Pods/
+Podfile.lock
 # Xcode
 build/*
 *.pbxuser

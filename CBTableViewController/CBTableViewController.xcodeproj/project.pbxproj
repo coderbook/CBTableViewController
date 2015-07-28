@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F4078D7698C30FBC7B462B3 /* libPods-CBTableViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 068396D994CAB52FDD0F8B74 /* libPods-CBTableViewController.a */; };
 		ADCE0B9B1B6624A70096683A /* CBTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ADCE0B9A1B6624A70096683A /* CBTableViewController.h */; };
 		ADCE0B9D1B6624A70096683A /* CBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCE0B9C1B6624A70096683A /* CBTableViewController.m */; };
 		ADCE0BA31B6624A70096683A /* libCBTableViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADCE0B971B6624A70096683A /* libCBTableViewController.a */; };
@@ -36,6 +37,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		068396D994CAB52FDD0F8B74 /* libPods-CBTableViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBTableViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4216C4AFF6B7A46E8371956E /* Pods-CBTableViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBTableViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBTableViewController/Pods-CBTableViewController.release.xcconfig"; sourceTree = "<group>"; };
+		60C1C2770F0FAA3A237521D0 /* Pods-CBTableViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBTableViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBTableViewController/Pods-CBTableViewController.debug.xcconfig"; sourceTree = "<group>"; };
 		ADCE0B971B6624A70096683A /* libCBTableViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCBTableViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADCE0B9A1B6624A70096683A /* CBTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBTableViewController.h; sourceTree = "<group>"; };
 		ADCE0B9C1B6624A70096683A /* CBTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBTableViewController.m; sourceTree = "<group>"; };
@@ -48,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4078D7698C30FBC7B462B3 /* libPods-CBTableViewController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +67,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6096638921BE54B6FD6AFD18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				068396D994CAB52FDD0F8B74 /* libPods-CBTableViewController.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A67409CC4DDF3FC6C491A2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60C1C2770F0FAA3A237521D0 /* Pods-CBTableViewController.debug.xcconfig */,
+				4216C4AFF6B7A46E8371956E /* Pods-CBTableViewController.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ADCE0B8E1B6624A70096683A = {
 			isa = PBXGroup;
 			children = (
 				ADCE0B991B6624A70096683A /* CBTableViewController */,
 				ADCE0BA61B6624A70096683A /* CBTableViewControllerTests */,
 				ADCE0B981B6624A70096683A /* Products */,
+				7A67409CC4DDF3FC6C491A2A /* Pods */,
+				6096638921BE54B6FD6AFD18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADCE0BAB1B6624A70096683A /* Build configuration list for PBXNativeTarget "CBTableViewController" */;
 			buildPhases = (
+				58C2D0E4B816BA936D277D36 /* Check Pods Manifest.lock */,
 				ADCE0B931B6624A70096683A /* Sources */,
 				ADCE0B941B6624A70096683A /* Frameworks */,
 				ADCE0B951B6624A70096683A /* CopyFiles */,
+				ED575493DE2D069B50032D03 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,6 +221,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58C2D0E4B816BA936D277D36 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED575493DE2D069B50032D03 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CBTableViewController/Pods-CBTableViewController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ADCE0B931B6624A70096683A /* Sources */ = {
@@ -303,6 +362,7 @@
 		};
 		ADCE0BAC1B6624A70096683A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60C1C2770F0FAA3A237521D0 /* Pods-CBTableViewController.debug.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,6 +372,7 @@
 		};
 		ADCE0BAD1B6624A70096683A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4216C4AFF6B7A46E8371956E /* Pods-CBTableViewController.release.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,6 +431,7 @@
 				ADCE0BAD1B6624A70096683A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADCE0BAE1B6624A70096683A /* Build configuration list for PBXNativeTarget "CBTableViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -378,6 +440,7 @@
 				ADCE0BB01B6624A70096683A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
