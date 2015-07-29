@@ -52,7 +52,7 @@ typedef NS_ENUM(int, LOADTYPE) {
 }
 
 -(void)refresh{
-
+    
 }
 
 -(void)clear{

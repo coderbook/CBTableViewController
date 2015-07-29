@@ -3,7 +3,7 @@ platform :ios, '6.0'
 
 target 'CBTableViewController' do
 pod 'MJRefresh'
-
+pod 'MJExtension'
 end
 
 target 'CBTableViewControllerTests' do

@@ -51,7 +51,12 @@ static const int defaultPageSize=10;
 @property(nonatomic,assign)id<CBTableViewControllerNetWork> networkHandler;
 @property(nonatomic) BOOL isFirstLoad;
 
-
+/**
+ 对tableview进行初始化设置
+ @param tableivew 要进行设置的tableview
+ @param method 基于baseurl的请求的api的名字
+ @param datakey 返回的数据中包含数据字段的key
+ **/
 -(void)initTableView:(UITableView*)tableView method:(NSString*)method dataKey:(NSString*)dataKey;
 
 -(void)refresh;
