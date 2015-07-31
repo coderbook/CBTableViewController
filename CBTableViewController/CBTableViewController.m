@@ -9,6 +9,7 @@
 #import "CBTableViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import <MJExtension/MJExtension.h>
+#import "CBTableCellProtocol.h"
 
 typedef NS_ENUM(int, LOADTYPE) {
     REFRESH,
@@ -22,6 +23,8 @@ typedef NS_ENUM(int, LOADTYPE) {
     CGFloat _tableViewHeight;
     
     Class modelCalzzName;
+    
+    NSString *_cellIdentifier;
 }
 
 @end
@@ -36,13 +39,13 @@ typedef NS_ENUM(int, LOADTYPE) {
     _params = [NSMutableDictionary dictionary];
     _data = [NSMutableArray array];
     _totalSize = -1;
-    _currentPage = 0;
+    _currentPage = _firstPageIndex;
     _pageSize = defaultPageSize;
     _totalSizeName = @"totalPage";
     
 }
 
--(void)initTableView:(UITableView*)tableView action:(NSString*)action reqCurrentPagekey:(NSString *)curPage reqPageSizeKey:(NSString *)pageSize{
+-(void)initTableView:(UITableView*)tableView action:(NSString*)action reqCurrentPagekey:(NSString *)curPage reqPageSizeKey:(NSString *)pageSize andNetWorkHandler:(id<CBTableViewControllerNetWork>)network{
     _action = [action copy];
     _currentPageKey = curPage;
     
@@ -50,15 +53,25 @@ typedef NS_ENUM(int, LOADTYPE) {
     
     _baseTableView = tableView;
     _tableViewHeight = _baseTableView.frame.size.height;
-    _baseTableView.delegate = self;
     _baseTableView.dataSource = self;
     _baseTableView.header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    
+    [self setCBTableViewControllerNetWork:network];
+}
+
+-(void)setNeedLoadMoreFeature{
+    _baseTableView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 -(void)refresh{
-    _currentPage=0;
-    [_params setObject:[NSNumber numberWithInt:_currentPage] forKey:_currentPageKey];
-    [_params setObject:[NSNumber numberWithInt:_pageSize] forKey:_pageSizeKey];
+    _currentPage=_firstPageIndex;
+
+    if (_baseTableView.footer.isRefreshing) {
+        //try cancel
+        [_baseTableView.footer endRefreshing];
+    }
+    [_data removeAllObjects];
+    [_baseTableView reloadData];
     [self loadData:REFRESH];
 }
 
@@ -66,11 +79,31 @@ typedef NS_ENUM(int, LOADTYPE) {
 
 }
 
+-(void)loadMoreData{
+    if((_totalSize==-1 || _totalSize > _data.count)){
+        if (_baseTableView.header.isRefreshing) {
+            [_baseTableView.header endRefreshing];
+        }
+        _currentPage++;
+        [self loadData:LOADMORE];
+    }
+}
+
 -(void)loadData:(LOADTYPE)type{
     LOADTYPE curType=type;
+    [_params setObject:[NSNumber numberWithInt:_currentPage] forKey:_currentPageKey];
+    [_params setObject:[NSNumber numberWithInt:_pageSize] forKey:_pageSizeKey];
     [self.networkHandler send:_action params:_params success:^(id responseObject) {
+        
         if (curType==REFRESH) {
-            [_data removeAllObjects];
+            if (!_baseTableView.header.isRefreshing && _data.count>0) {
+                //maybe canceled
+                return ;
+            }
+        }else{
+            if (!_baseTableView.footer.isRefreshing) {
+                return;
+            }
         }
         if ([responseObject isKindOfClass:[NSArray class]]) {
             NSArray *tmpArray= [[self getItemModelClazz] objectArrayWithKeyValuesArray:responseObject];
@@ -80,32 +113,49 @@ typedef NS_ENUM(int, LOADTYPE) {
             [_data addObjectsFromArray:tmpArray];
         }
         
+        [_baseTableView.header endRefreshing];
+        [_baseTableView.footer endRefreshing];
+        
+        [_baseTableView reloadData];
     } failure:^(NSError *error) {
         
     }];
 }
 
+-(void)setTableCellIdentifier:(NSString*)identity withNibName:(NSString*)nibName{
+    isUsingNibCell=YES;
+    _cellIdentifier=identity;
+    if (_baseTableView) {
+        [_baseTableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:identity];
+    }else{
+        NSLog(@"setTableCellIdentifier:withNibName: 这个方法必须在initTableView方法之后调用");
+    }
+}
 
-#pragma -mark tableview datasource
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    CGFloat height = _tableViewHeight;
-    if(_data.count ==0 ){
-        height = 0;
+-(void)setTableCellIdentifier:(NSString*)identity withCellCalss:(Class)cellClazz{
+    isUsingNibCell=NO;
+    _cellIdentifier=identity;
+    if (_baseTableView) {
+        [_baseTableView registerClass:cellClazz forCellReuseIdentifier:identity];
+    }else{
+        NSLog(@"setTableCellIdentifier:withNibName: 这个方法必须在initTableView方法之后调用");
     }
-    else{
-        if((_baseTableView.rowHeight * _data.count) < _tableViewHeight){
-            height = (_baseTableView.rowHeight * _data.count);
-        }
+}
+
+#pragma -mark tableviewdatasource
+
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    id  model=[_data objectAtIndex:indexPath.row];
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:_cellIdentifier forIndexPath:indexPath];
+    if ([cell respondsToSelector:@selector(setCBCellItemDataSource:)]) {
+        [cell performSelector:@selector(setCBCellItemDataSource:) withObject:model];
     }
-    
-    _baseTableView.frame = CGRectMake(_baseTableView.frame.origin.x, _baseTableView.frame.origin.y, _baseTableView.frame.size.width, height);
+    return cell;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _data.count;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
-}
-
 
 #pragma -mark  子类必须实现的方法
 -(Class)getItemModelClazz{

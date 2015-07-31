@@ -15,5 +15,6 @@ build/*
 !default.xcworkspace
 xcuserdata
 profile
+Pods
 *.moved-aside
 *.xcuserstate

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		818A73CA491922EF1B5B0897 /* libPods-CBTableViewControllerExamples.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F7E92EB28CE6213541C09C /* libPods-CBTableViewControllerExamples.a */; };
+		ADB9A5B41B6A1B0900256B81 /* ProjectItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB9A5B31B6A1B0900256B81 /* ProjectItemModel.m */; };
+		ADB9A5BC1B6A244C00256B81 /* CBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB9A5BA1B6A244C00256B81 /* CBTableViewCell.m */; };
+		ADB9A5BD1B6A244C00256B81 /* CBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADB9A5BB1B6A244C00256B81 /* CBTableViewCell.xib */; };
 		ADCB83F41B68E0650099AA7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB83F31B68E0650099AA7F /* main.m */; };
 		ADCB83F71B68E0650099AA7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB83F61B68E0650099AA7F /* AppDelegate.m */; };
 		ADCB83FA1B68E0650099AA7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB83F91B68E0650099AA7F /* ViewController.m */; };
@@ -27,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ADB9A5B21B6A1B0900256B81 /* ProjectItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectItemModel.h; sourceTree = "<group>"; };
+		ADB9A5B31B6A1B0900256B81 /* ProjectItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectItemModel.m; sourceTree = "<group>"; };
+		ADB9A5B91B6A244C00256B81 /* CBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTableViewCell.h; sourceTree = "<group>"; };
+		ADB9A5BA1B6A244C00256B81 /* CBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTableViewCell.m; sourceTree = "<group>"; };
+		ADB9A5BB1B6A244C00256B81 /* CBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBTableViewCell.xib; sourceTree = "<group>"; };
 		ADCB83EE1B68E0650099AA7F /* CBTableViewControllerExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBTableViewControllerExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADCB83F21B68E0650099AA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADCB83F31B68E0650099AA7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +49,9 @@
 		ADCB84071B68E0650099AA7F /* CBTableViewControllerExamplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBTableViewControllerExamplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADCB840C1B68E0650099AA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADCB840D1B68E0650099AA7F /* CBTableViewControllerExamplesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBTableViewControllerExamplesTests.m; sourceTree = "<group>"; };
+		E0F7E92EB28CE6213541C09C /* libPods-CBTableViewControllerExamples.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBTableViewControllerExamples.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8D8C09A2F2E1DA3A970EC2 /* Pods-CBTableViewControllerExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBTableViewControllerExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBTableViewControllerExamples/Pods-CBTableViewControllerExamples.release.xcconfig"; sourceTree = "<group>"; };
+		F561EFE6D3DEDCA682F1D312 /* Pods-CBTableViewControllerExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBTableViewControllerExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBTableViewControllerExamples/Pods-CBTableViewControllerExamples.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818A73CA491922EF1B5B0897 /* libPods-CBTableViewControllerExamples.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +73,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6031F1FF5E4877FDE243DC80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F561EFE6D3DEDCA682F1D312 /* Pods-CBTableViewControllerExamples.debug.xcconfig */,
+				ED8D8C09A2F2E1DA3A970EC2 /* Pods-CBTableViewControllerExamples.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ADB9A5B11B6A1AEB00256B81 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				ADB9A5B21B6A1B0900256B81 /* ProjectItemModel.h */,
+				ADB9A5B31B6A1B0900256B81 /* ProjectItemModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		ADB9A5B51B6A23DF00256B81 /* tablecell */ = {
+			isa = PBXGroup;
+			children = (
+				ADB9A5B91B6A244C00256B81 /* CBTableViewCell.h */,
+				ADB9A5BA1B6A244C00256B81 /* CBTableViewCell.m */,
+				ADB9A5BB1B6A244C00256B81 /* CBTableViewCell.xib */,
+			);
+			name = tablecell;
+			sourceTree = "<group>";
+		};
 		ADCB83E51B68E0650099AA7F = {
 			isa = PBXGroup;
 			children = (
 				ADCB83F01B68E0650099AA7F /* CBTableViewControllerExamples */,
 				ADCB840A1B68E0650099AA7F /* CBTableViewControllerExamplesTests */,
 				ADCB83EF1B68E0650099AA7F /* Products */,
+				6031F1FF5E4877FDE243DC80 /* Pods */,
+				E6D2AA46E87EE8E8EB947BBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +124,8 @@
 		ADCB83F01B68E0650099AA7F /* CBTableViewControllerExamples */ = {
 			isa = PBXGroup;
 			children = (
+				ADB9A5B51B6A23DF00256B81 /* tablecell */,
+				ADB9A5B11B6A1AEB00256B81 /* model */,
 				ADCB83F51B68E0650099AA7F /* AppDelegate.h */,
 				ADCB83F61B68E0650099AA7F /* AppDelegate.m */,
 				ADCB83F81B68E0650099AA7F /* ViewController.h */,
@@ -119,6 +164,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E6D2AA46E87EE8E8EB947BBF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0F7E92EB28CE6213541C09C /* libPods-CBTableViewControllerExamples.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADCB84111B68E0650099AA7F /* Build configuration list for PBXNativeTarget "CBTableViewControllerExamples" */;
 			buildPhases = (
+				AD34D9E2BC693A4B75271CF8 /* Check Pods Manifest.lock */,
 				ADCB83EA1B68E0650099AA7F /* Sources */,
 				ADCB83EB1B68E0650099AA7F /* Frameworks */,
 				ADCB83EC1B68E0650099AA7F /* Resources */,
+				D76B016763DF1B8BE1DCBBC2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB9A5BD1B6A244C00256B81 /* CBTableViewCell.xib in Resources */,
 				ADCB83FD1B68E0650099AA7F /* Main.storyboard in Resources */,
 				ADCB84021B68E0650099AA7F /* LaunchScreen.xib in Resources */,
 				ADCB83FF1B68E0650099AA7F /* Images.xcassets in Resources */,
@@ -214,12 +270,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AD34D9E2BC693A4B75271CF8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D76B016763DF1B8BE1DCBBC2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CBTableViewControllerExamples/Pods-CBTableViewControllerExamples-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ADCB83EA1B68E0650099AA7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB9A5B41B6A1B0900256B81 /* ProjectItemModel.m in Sources */,
 				ADCB83FA1B68E0650099AA7F /* ViewController.m in Sources */,
+				ADB9A5BC1B6A244C00256B81 /* CBTableViewCell.m in Sources */,
 				ADCB83F71B68E0650099AA7F /* AppDelegate.m in Sources */,
 				ADCB83F41B68E0650099AA7F /* main.m in Sources */,
 			);
@@ -347,6 +438,7 @@
 		};
 		ADCB84121B68E0650099AA7F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F561EFE6D3DEDCA682F1D312 /* Pods-CBTableViewControllerExamples.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CBTableViewControllerExamples/Info.plist;
@@ -357,6 +449,7 @@
 		};
 		ADCB84131B68E0650099AA7F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED8D8C09A2F2E1DA3A970EC2 /* Pods-CBTableViewControllerExamples.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CBTableViewControllerExamples/Info.plist;
@@ -418,6 +511,7 @@
 				ADCB84131B68E0650099AA7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADCB84141B68E0650099AA7F /* Build configuration list for PBXNativeTarget "CBTableViewControllerExamplesTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +520,7 @@
 				ADCB84161B68E0650099AA7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -24,8 +24,10 @@ static const int defaultPageSize=10;
 @end
 
 
-@interface CBTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
+@interface CBTableViewController : UIViewController<UITableViewDataSource>{
     NSMutableArray * _data;
+    
+    int _firstPageIndex;
     
     int _currentPage;
     
@@ -50,6 +52,8 @@ static const int defaultPageSize=10;
     
     
     BOOL isFirst;
+    
+    BOOL isUsingNibCell;
 
 }
 @property(nonatomic,assign,setter=setCBTableViewControllerNetWork:)id<CBTableViewControllerNetWork> networkHandler;
@@ -60,6 +64,10 @@ static const int defaultPageSize=10;
 
 -(void)clear;
 
+-(void)setCBTableViewControllerNetWork:(id<CBTableViewControllerNetWork>)network;
+
+-(void)setNeedLoadMoreFeature;
+
 #pragma -mark 子类必须调用的方法
 /**
  对tableview进行初始化设置
@@ -68,8 +76,11 @@ static const int defaultPageSize=10;
  @param curPage 请求参数中currentpage 的key 没有可以为nil
  @param pageSize 请求参数中pageSize的key  没有可以为nil
  **/
--(void)initTableView:(UITableView*)tableView action:(NSString*)action reqCurrentPagekey:(NSString*)curPage reqPageSizeKey:(NSString*)pageSize;
--(void)setCBTableViewControllerNetWork:(id<CBTableViewControllerNetWork>)network;
+-(void)initTableView:(UITableView*)tableView action:(NSString*)action reqCurrentPagekey:(NSString*)curPage reqPageSizeKey:(NSString*)pageSize andNetWorkHandler:(id<CBTableViewControllerNetWork>)network;
+
+-(void)setTableCellIdentifier:(NSString*)identity withNibName:(NSString*)nibName;
+
+-(void)setTableCellIdentifier:(NSString*)identity withCellCalss:(Class)cellClazz;
 
 #pragma -mark  子类必须实现的方法
 -(Class)getItemModelClazz;

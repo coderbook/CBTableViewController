@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CBTableViewController.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : CBTableViewController
 
 
 @end

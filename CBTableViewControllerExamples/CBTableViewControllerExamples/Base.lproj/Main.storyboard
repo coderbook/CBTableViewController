@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zUO-xM-e47">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="gWW-yg-Tf7">
+            <objects>
+                <navigationController id="zUO-xM-e47" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LgT-wK-BJM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ojB-SU-WMO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhz-Aw-5SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-358" y="326"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +31,53 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ns3-Q8-JzB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JUd-Hg-kVK"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="N4T-Qg-NOH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ns3-Q8-JzB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5xC-9W-gBB"/>
+                            <constraint firstAttribute="trailing" secondItem="ns3-Q8-JzB" secondAttribute="trailing" id="ZU3-xN-haw"/>
+                            <constraint firstItem="ns3-Q8-JzB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fsn-XC-oaL"/>
+                            <constraint firstItem="ns3-Q8-JzB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mfX-mn-aMa"/>
+                            <constraint firstItem="ns3-Q8-JzB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pMK-fE-tmq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ns3-Q8-JzB" secondAttribute="bottom" id="uKW-S3-2cP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ns3-Q8-JzB" secondAttribute="bottom" id="v9x-QK-tnX"/>
+                            <constraint firstAttribute="trailing" secondItem="ns3-Q8-JzB" secondAttribute="trailing" id="ymF-oy-pfe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5xC-9W-gBB"/>
+                                <exclude reference="ZU3-xN-haw"/>
+                                <exclude reference="pMK-fE-tmq"/>
+                                <exclude reference="uKW-S3-2cP"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="5xC-9W-gBB"/>
+                                <include reference="ZU3-xN-haw"/>
+                                <include reference="pMK-fE-tmq"/>
+                                <include reference="uKW-S3-2cP"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="yL8-1x-Hhe"/>
+                    <connections>
+                        <outlet property="mTableView" destination="ns3-Q8-JzB" id="Sxz-sm-ecJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="345" y="326"/>
         </scene>
     </scenes>
 </document>
